@@ -1,0 +1,124 @@
+$color-primary: #3E3970;
+$color-shadow: rgba(255, 242, 3, 0.915);
+$bg-transparent: rgba(255, 255, 255, 0.9);
+
+$breakpoint-desktop: 1200px;
+$breakpoint-laptop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
+@keyframes swing {
+    0%, 50%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: relative;
+    z-index: 2;
+
+    .forma1, .forma2 {
+        position: fixed;
+        top: 0;
+        width: 35%;
+        max-width: 400px;
+        z-index: 1;
+    }
+
+    .forma1 { left: 0; }
+    .forma2 { right: 0; }
+
+    .imagemPrincipal {
+        position: relative;
+        z-index: 2;
+        
+        img {
+            width: 120px;
+            height: auto;
+            animation: swing 2s ease-in-out infinite;
+        }
+    }
+
+    nav {
+        position: relative;
+        z-index: 2;
+
+        ul {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        li {
+            transition: all 0.3s ease;
+
+            &:hover {
+                text-shadow: $color-shadow 1px 1px 3px;
+                transform: scale(1.1);
+            }
+        }
+
+        a {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-laptop) {
+    .header {
+        padding: 1.5rem 2rem;
+
+        nav {
+            ul { gap: 2rem; }
+            a { font-size: 1.5rem; }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+
+        .imagemPrincipal img { width: 100px; }
+        nav ul { gap: 1.5rem; }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .header {
+        padding: 1rem 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        .imagemPrincipal {
+            margin: 0 auto;
+            img { width: 100px; }
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: $bg-transparent;
+
+            ul {
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            a {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,174 @@
+.main {
+    position: relative;
+    min-height: 100vh;
+    overflow: visible;
+
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        z-index: -2;
+    }
+}
+
+.AnoNovo {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    z-index: 5;
+
+    .containerFigure {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4rem;
+        padding-bottom: 6rem;
+
+        figure {
+            flex: 1;
+            max-width: 60%;
+
+            img {
+                width: 100%;
+                height: auto;
+                animation: fadeInScale 1.5s ease-out;
+            }
+        }
+
+        .mensagem {
+            flex: 1;
+            text-align: right;
+            color: #3E3970;
+            max-width: 45%;
+
+            h2 {
+                font-size: 2.1rem;
+                margin-bottom: 0.5rem;
+                font-weight: normal;
+            }
+
+            h1 {
+                font-size: 3rem;
+                color: #3E3970;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1200px){
+    .AnoNovo .containerFigure {
+        gap: 2rem;
+
+        figure {
+            max-width: 55%;
+        }
+
+        .mensagem {
+            max-width: 45%;
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .AnoNovo {
+        padding: 1.5rem;
+
+        .containerFigure {
+            gap: 2rem;
+
+            figure {
+                max-width: 50%;
+            }
+
+            .mensagem {
+                max-width: 50%;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                h1 {
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .AnoNovo .containerFigure {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding-bottom: 8rem;
+
+        figure {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .mensagem {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 480px){
+    .AnoNovo {
+        padding: 1rem;
+
+        .containerFigure {
+            gap: 1rem;
+            padding-bottom: 10rem;
+
+            figure {
+                max-width: 100%;
+            }
+
+            .mensagem {
+                h2 {
+                    font-size: 1.8rem;
+                }
+
+                h1 {
+                    font-size: 2.2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}
+
